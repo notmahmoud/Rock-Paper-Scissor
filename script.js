@@ -52,13 +52,13 @@ function gameMove(move) {
     }
 
     document.getElementById('result').innerText = `You picked ${move}, Computer picked ${computerMove} \n${result}!`;
-    document.getElementById('score').innerText = `User: ${userScore} | Computer: ${computerScore} | Draws: ${drawScore}`;
+    document.getElementById('score').innerText = `You: ${userScore} | Computer: ${computerScore} | Draws: ${drawScore}`;
 }
 
 function resetGame() {
     userScore = 0;
     computerScore = 0;
     drawScore = 0;
-    document.getElementById('score').innerText = `User: ${userScore} | Computer: ${computerScore} | Draws: ${drawScore}`;
+    document.getElementById('score').innerText = `You: ${userScore} | Computer: ${computerScore} | Draws: ${drawScore}`;
     document.getElementById('result').innerText = '';
 }

@@ -1,55 +1,54 @@
- /* if we added a background picture instead of just a color */
+body {
 
- body {
-    /* margin: 0;     
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; */
     background-color: rgb(252, 241, 227);
-  }
+}
 
-  .game {
+.game {
     display: flex;
-    /* position: absolute; */
     flex-direction: column;
     align-items: center;
     margin: 150px;
-  }
+}
 
-  .buttons {
+.buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
-  }
+}
 
-  .rps {
+.rps {
     width: 150px;
     height: 150px;
     font-size: 60px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;    
     border-radius: 100px;
     cursor: pointer;
     background: transparent;
     transition: 0.3 ease;
-  }
+}
 
-  button:hover {
+button:hover {
     background-color: rgba(255, 255, 255, 0.651);
-  }
+}
 
-  #result {
+.reset{
+    margin-top: 20px;
+    background-color: rgb(255 209 0);
+    border:none;
+    width: 100px;
+    height: 25px;
+}
+
+#result {
     font-size: 24px;
     font-weight: bold;
     margin-top: 20px;
     text-align: center;
-  }
+}
 
-  #score {
+#score {
     font-size: 18px;
     margin-top: 10px;
-  }
+}
