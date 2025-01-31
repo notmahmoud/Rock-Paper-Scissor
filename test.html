@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <img src="rockpaper.jpg"> -->
+  <div class="game">
+    <h1>Rock Paper Scissors</h1>
+    <div class="buttons">
+      <button class="rps" onclick="gameMove('Rock')">✊</button>
+      <button class="rps" onclick="gameMove('Paper')">✋ </button>
+      <button class="rps" onclick="gameMove('Scissors')">✌️</button>
+    </div>
+    <div id="result"></div>
+    <div id="score">User: 0 | Computer: 0 | Draws: 0</div>
+    <button onclick="resetGame()">Reset Game</button>
+  </div>
+  <script>
+
+    let userScore = 0;
+    let computerScore = 0;
+    let drawScore = 0;
+
+
+    // math.random is gonna be from 0 to 1 .. numbers like 0.41651 0.95161 .. so we divided it into 3 parts
+    //compter random choice
+    function pickComputerMove() {
+      const randomNumber = Math.random();
+
+      let computerMove = ''
+      if (randomNumber >= 0 && randomNumber < 1 / 3) {
+        computerMove = 'Rock';
+      }
+
+      else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+        computerMove = 'Paper';
+      }
+
+      else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+        computerMove = 'Scissors';
+      }
+      return computerMove;
+    }
+
+
+
+    function gameMove(move) {
+      const computerMove = pickComputerMove();
+      let result = ''
+
+      if (move == computerMove) {
+        result = 'Draw';
+        drawScore++;
+      }
+      else if
+        ((move == 'Rock' && computerMove == 'Paper') ||
+        (move == 'Scissors' && computerMove == 'Rock') ||
+        (move == 'Paper' && computerMove == 'Scissors')) {
+
+        result = 'You Lose';
+        computerScore++;
+      }
+      else if
+        ((move == 'Paper' && computerMove == 'Rock') ||
+        (move == 'Scissors' && computerMove == 'Paper') ||
+        (move == 'Rock' && computerMove == 'Scissors')) {
+
+        result = 'You Win';
+        userScore++;
+      }
+
+      document.getElementById('result').innerText = `You picked ${move}, Computer picked ${computerMove} \n${result}!`;
+      document.getElementById('score').innerText = `User: ${userScore} | Computer: ${computerScore} | Draws: ${drawScore}`;
+    }
+
+    function resetGame() {
+      userScore = 0;
+      computerScore = 0;
+      drawScore = 0;
+      document.getElementById('score').innerText = `User: ${userScore} | Computer: ${computerScore} | Draws: ${drawScore}`;
+      document.getElementById('result').innerText = '';
+    }
+  </script>
+
+
+
+  <style>
+    /* if we added a background picture instead of just a color */
+
+    body {
+      /* margin: 0;     
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; */
+      background-color: rgb(252, 241, 227);
+    }
+
+    .game {
+      display: flex;
+      /* position: absolute; */
+      flex-direction: column;
+      align-items: center;
+      margin: 150px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .rps {
+      width: 150px;
+      height: 150px;
+      font-size: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+      cursor: pointer;
+      background: transparent;
+      transition: 0.3 ease;
+    }
+
+    button:hover {
+      background-color: rgba(255, 255, 255, 0.651);
+    }
+
+    #result {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #score {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
+
+
+
+
+
+
+
+</body>
+
+</html>
