@@ -5,6 +5,7 @@ let drawScore = 0;
 
 
 // math.random is gonna be from 0 to 1 .. numbers like 0.41651 0.95161 .. so we divided it into 3 parts
+//3 part, each part = a different move
 //compter random choice
 function pickComputerMove() {
     const randomNumber = Math.random();
